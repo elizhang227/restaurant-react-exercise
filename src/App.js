@@ -52,7 +52,7 @@ class App extends Component {
     //const restaurantList = restaurants[restaurant]
     //console.log(restaurantList)
     this.setState({
-      restaurants: restaurants
+      cuisine: restaurants[style]
     })
   }
 
@@ -63,8 +63,11 @@ class App extends Component {
   return (
     <div>
       {Object.keys(restaurants).map((foodStyle, ind) => 
-      <button key={foodStyle+ind} onClick={(e) => this.handleClick(e, foodStyle)}>{foodStyle}</button>
+      <button key={foodStyle+ind} onClick={(e) => this.handleClick(e, foodStyle)}>
+        <h3>{foodStyle}</h3>
+      </button>
       )}
+      <RestTypeList restaurants={cuisine} />
     </div>
   )
   }
